@@ -1,0 +1,163 @@
+header {
+    grid-area: header;
+}
+
+.navigation {
+    position: fixed;
+    z-index: 1;
+    height: 6vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background: rgb(132, 98, 195);
+    background: linear-gradient(66deg, rgba(132, 98, 195, 1) 0%, rgba(35, 35, 158, 1) 100%);
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
+}
+
+.navigation .app-name {
+    margin: 0 0 0 15vw;
+    font-size: 22px;
+}
+
+.navigation .app-name a {
+    color: black;
+    text-decoration: none;
+}
+
+#menuToggle {
+    margin-left: 2%;
+    width: 8vw;
+    height: 6vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 3; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+#menuToggle .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding-top: 6px;
+    width: 40px;
+    height: 40px;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle .hamburger-menu span {
+    display: block;
+    width: 90%;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #000000;
+    border-radius: 3px;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease-in-out;
+}
+
+#menuToggle .hamburger-menu span:first-child {
+    transform-origin: left center;
+}
+
+#menuToggle .hamburger-menu span:nth-child(2) {
+    transform-origin: left center;
+}
+
+#menuToggle .hamburger-menu span:last-child {
+    transform-origin: left center;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ .hamburger-menu span:first-child {
+    opacity: 1;
+    transform: rotate(45deg) translate(3px, -1px);
+    background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ .hamburger-menu span:nth-last-child(2) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+
+}
+
+#menuToggle input:checked ~ .hamburger-menu span:last-child {
+    transform: rotate(-45deg) translate(-3px, 5px);
+}
+
+#menu {
+    position: absolute;
+    width: 40vh;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: white;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0 0;
+    z-index: 1;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
+}
+
+#menu a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+#menu a:hover {
+    color: tomato;
+}
+
+#menu p {
+    margin: 0;
+    height: 30vh;
+    background: rgb(132, 98, 195);
+    background: linear-gradient(66deg, rgba(132, 98, 195, 1) 0%, rgba(35, 35, 158, 1) 100%);
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
+
+}
+
+#menu li {
+    margin: 5% 5%;
+    font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menu.open {
+    transform: none;
+}
