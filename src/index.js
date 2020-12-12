@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import reportWebVitals from './reportWebVitals';
 import Routing from "./Routing";
+import {reducers} from "./redux/reducers";
 import './index.css';
 
+
+const store = createStore(reducers);
 
 const Entry = () => {
     return <Routing/>
 };
 
+
 ReactDOM.render(
     <React.StrictMode>
-        <Entry/>
+        <Provider store={store}>
+            <Entry/>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import "./TopNav.css";
 
 
@@ -29,8 +30,6 @@ class TopNav extends React.Component {
     onHamburgerMenuClicked = () => {
         const {isMenuOpen} = this.state;
 
-        console.log(this.menuRef.current);
-
         if (isMenuOpen) {
             this.closeMenu();
         } else {
@@ -43,7 +42,8 @@ class TopNav extends React.Component {
         return (
             <header>
                 <div id="menuToggle">
-                    <input type="checkbox" onChange={this.onHamburgerMenuClicked} ref={this.checkboxRef}/>
+                    <input type="checkbox" onChange={this.onHamburgerMenuClicked}
+                           ref={this.checkboxRef} /*checked={this.props.isMenuOpen}*//>
                     <div className="hamburger-menu">
                         <span></span>
                         <span></span>
@@ -66,4 +66,7 @@ class TopNav extends React.Component {
     }
 }
 
-export default TopNav;
+const mapStateToProps = state => {
+    return {isMenuOpen: state.isMenuOpen};
+}
+export default connect(mapStateToProps)(TopNav);
