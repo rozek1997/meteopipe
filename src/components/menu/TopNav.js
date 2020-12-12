@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import "./TopNav.css";
+import {closeMenu, openMenu} from "../../redux/actions";
 
 
 class TopNav extends React.Component {
@@ -14,13 +15,15 @@ class TopNav extends React.Component {
     }
 
     openMenu = () => {
-        this.checkboxRef.current.checked = true;
-        this.setState({isMenuOpen: true});
+        // this.checkboxRef.current.checked = true;
+        // this.setState({isMenuOpen: true});
+        this.props.openMenu();
         this.menuRef.current.classList.add("open");
     }
     closeMenu = () => {
-        this.checkboxRef.current.checked = false;
-        this.setState({isMenuOpen: false});
+        // this.checkboxRef.current.checked = false;
+        // this.setState({isMenuOpen: false});
+        this.props.closeMenu();
         this.menuRef.current.classList.remove("open");
     }
     onMenuItemClick = () => {
@@ -28,7 +31,7 @@ class TopNav extends React.Component {
     }
 
     onHamburgerMenuClicked = () => {
-        const {isMenuOpen} = this.state;
+        const {isMenuOpen} = this.props;
 
         if (isMenuOpen) {
             this.closeMenu();
@@ -43,7 +46,7 @@ class TopNav extends React.Component {
             <header>
                 <div id="menuToggle">
                     <input type="checkbox" onChange={this.onHamburgerMenuClicked}
-                           ref={this.checkboxRef} /*checked={this.props.isMenuOpen}*//>
+                           ref={this.checkboxRef} checked={this.props.isMenuOpen}/>
                     <div className="hamburger-menu">
                         <span></span>
                         <span></span>
@@ -67,6 +70,6 @@ class TopNav extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {isMenuOpen: state.isMenuOpen};
+    return {isMenuOpen: state.menuStatus.isMenuOpen};
 }
-export default connect(mapStateToProps)(TopNav);
+export default connect(mapStateToProps, {openMenu, closeMenu})(TopNav);

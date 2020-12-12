@@ -1,20 +1,20 @@
 import {combineReducers} from "redux";
 
 const initialState = {
-    menuOpen: false
+    isMenuOpen: false
 };
 
 const menuReducer = (state = initialState, action) => {
     if (action.type === "CLOSE_MENU")
-        return {...state, menuOpen: false}
+        return {...state, isMenuOpen: false}
     if (action.type === "OPEN_MENU")
-        return {...state, menuOpen: true}
+        return {...state, isMenuOpen: true}
 
 
-    return state
+    return state;
 }
 
 
 export const reducers = combineReducers({
-    isMenuOpen: menuReducer
+    menuStatus: menuReducer
 });

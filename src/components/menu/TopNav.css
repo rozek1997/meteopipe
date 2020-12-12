@@ -15,7 +15,7 @@ header {
 }
 
 .navigation .app-name {
-    margin: 0 0 0 15vw;
+    margin: 0 0 0 5vw;
     font-size: 22px;
 }
 
@@ -25,8 +25,8 @@ header {
 }
 
 #menuToggle {
-    margin-left: 2%;
-    width: 8vw;
+
+    width: 4vw;
     height: 6vh;
     position: fixed;
     display: flex;
@@ -160,4 +160,29 @@ header {
  */
 #menu.open {
     transform: none;
+}
+
+
+@media (max-width: 768px) {
+    #menuToggle {
+        width: 8vw;
+        margin-left: 4%;
+    }
+
+    .navigation .app-name {
+        margin: 0 0 0 15vw
+    }
+}
+
+@media (max-width: 927px) {
+
+    #menuToggle {
+        width: 6vw;
+        margin-left: 2%;
+    }
+
+    .navigation .app-name {
+        margin: 0 0 0 10vw;
+        font-size: 22px;
+    }
 }

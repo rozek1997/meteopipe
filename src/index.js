@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from "redux";
+import {applyMiddleware, compose, createStore} from "redux";
 import {Provider} from "react-redux";
 import reportWebVitals from './reportWebVitals';
 import Routing from "./Routing";
 import {reducers} from "./redux/reducers";
 import './index.css';
 
-
-const store = createStore(reducers);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+    reducers,
+    composeEnhancers(applyMiddleware())
+);
 
 const Entry = () => {
     return <Routing/>

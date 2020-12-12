@@ -1,4 +1,4 @@
-export const closedMenu = () => {
+export const closeMenu = () => {
     return {
         type: "CLOSE_MENU"
     }
