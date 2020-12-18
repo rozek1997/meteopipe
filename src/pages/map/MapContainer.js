@@ -4,10 +4,6 @@ import "./MapContainer.css";
 
 export class MapContainer extends React.Component {
 
-    com
-    //Map itse
-    changeParentNodeStyle
-
     constructor(props) {
         super(props);
         this.mapContainerRef = React.createRef();

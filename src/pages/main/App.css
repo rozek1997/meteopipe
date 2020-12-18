@@ -1,0 +1,78 @@
+.app {
+    grid-area: main;
+    text-align: center;
+    padding: 5%;
+    position: relative;
+}
+
+.app__gradient {
+    overflow: hidden;
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: -20%;
+    left: 0;
+    transform: skewY(-10deg);
+    background: var(--main-theme);
+    box-shadow: 0 -1rem 2rem rgba(0, 0, 255, 0.2);
+
+}
+
+.app__container {
+    display: grid;
+    width: 100%;
+    height: 90%;
+    margin-bottom: 10%;
+    grid-template-areas: "description image";
+    grid-column-gap: 5%;
+    grid-template-columns: 60% 20%;
+}
+
+.app__description__container {
+    grid-area: description;
+    text-align: left;
+}
+
+p {
+    margin: 3%;
+}
+
+.app__image {
+    grid-area: image;
+}
+
+.description__header {
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.description__details {
+    font-size: 22px;
+    color: darkgray;
+}
+
+.btn__signup {
+    width: 30%;
+    height: 40px;
+    background: var(--main-theme);;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 255, 0.2);
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn__signup:hover, btn__signup:focus {
+    background: #515ada;
+}
+
+.btn__signup a {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
