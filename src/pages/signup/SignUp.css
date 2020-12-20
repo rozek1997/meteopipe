@@ -1,0 +1,12 @@
+.registration-page {
+    grid-area: main;
+    background: var(--main-theme);
+}
+
+.registration-page__container {
+    width: 100%;
+    height: 100%;
+    margin: 24px;
+    background: white;
+
+}
