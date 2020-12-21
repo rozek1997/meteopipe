@@ -62,7 +62,6 @@ class SignUpForm extends React.Component {
         return (
             <div className="registration-form">
                 <Input type="email" hint="email" value={user.email} onChange={this.onInputChange} name="email"/>
-                {/*<Input type="text" hint="username" value={user.username} onChange={this.onInputChange} name="username"/>*/}
                 <Input type="password" hint="password" value={user.password} onChange={this.onInputChange}
                        name="password"/>
                 <Input type="password" hint="repeat password" value={user.repeatedPassword}

@@ -17,3 +17,7 @@
 .register-btn:not([DISABLED]) {
     background: green;
 }
+
+.register-btn:hover {
+    cursor: pointer;
+}

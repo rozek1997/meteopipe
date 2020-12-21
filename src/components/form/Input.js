@@ -9,7 +9,7 @@ class Input extends React.Component {
         const {type, hint, onChange, value, name} = this.props;
         return (
             <React.Fragment>
-                <div className="input-field">
+                <div className="inputField">
                     <input type={type} id={name} autoComplete="true" onChange={event => onChange(event)} value={value}
                            name={name}/>
                     <label htmlFor={name}>{hint}</label>
