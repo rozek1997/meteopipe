@@ -1,3 +1,19 @@
 .registration-form {
+    width: 100%;
+    padding: 5% 15%;
+}
 
+.register-btn {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    background: cornflowerblue;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 48px;
+    width: 100%;
+}
+
+.register-btn:not([DISABLED]) {
+    background: green;
 }

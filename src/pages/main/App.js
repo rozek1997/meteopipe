@@ -25,7 +25,7 @@ class App extends React.Component {
                         </p>
                     </div>
                     <div className="app__image">
-                        <img src={weatherImage}/>
+                        <img src={weatherImage} alt="iot-cloud"/>
                     </div>
                 </section>
                 <div className="app__gradient">

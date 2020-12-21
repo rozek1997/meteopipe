@@ -23,12 +23,13 @@ class SignUpForm extends React.Component {
 
     handleValidation = () => {
         const {user} = this.state;
-        return user.password === user.repeatedPassword && user.email.length > 0 && user.username.length > 0;
+        return (user.password === user.repeatedPassword) && user.password.length >= 0 && user.email.length > 0;
     }
 
     submit = async () => {
 
-        const {email, username, password, name} = this.state.user;
+        const {email, password, name} = this.state.user;
+        let username = email;
         try {
             const {user} = await Auth.signUp({
                 username,
@@ -45,10 +46,14 @@ class SignUpForm extends React.Component {
     }
 
     onInputChange = event => {
+        // console.log(event.target, event.target.name)
         const {name, value} = event.target;
-        this.setState({
-            [name]: value
-        });
+        this.setState(prevState => ({
+            user: {
+                ...prevState.user,
+                [name]: value
+            }
+        }));
     };
 
     render() {
@@ -57,14 +62,15 @@ class SignUpForm extends React.Component {
         return (
             <div className="registration-form">
                 <Input type="email" hint="email" value={user.email} onChange={this.onInputChange} name="email"/>
-                <Input type="text" hint="username" value={user.username} onChange={this.onInputChange} name="username"/>
+                {/*<Input type="text" hint="username" value={user.username} onChange={this.onInputChange} name="username"/>*/}
                 <Input type="password" hint="password" value={user.password} onChange={this.onInputChange}
                        name="password"/>
                 <Input type="password" hint="repeat password" value={user.repeatedPassword}
                        onChange={this.onInputChange} name="repeatedPassword"/>
                 <Input type="text" hint="name" value={user.name} onChange={this.onInputChange} name="name"/>
-                <button type="submit" onClick={this.submit()} disabled={!this.handleValidation()} value="Register"
-                        className="register-btn"/>
+                <button type="submit" onClick={this.submit} disabled={!this.handleValidation()} value="Register"
+                        className="register-btn">Create account
+                </button>
             </div>
         );
     }

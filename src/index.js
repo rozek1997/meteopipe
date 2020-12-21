@@ -4,9 +4,13 @@ import {applyMiddleware, compose, createStore} from "redux";
 import {Provider} from "react-redux";
 import reportWebVitals from './reportWebVitals';
 import Routing from "./Routing";
+import Amplify from "aws-amplify";
 import {reducers} from "./redux/reducers";
+import {currentAmplifyConfig} from "./api/amplify";
 import './index.css';
 
+
+Amplify.configure(currentAmplifyConfig)
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     reducers,

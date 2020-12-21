@@ -10,9 +10,9 @@ class Input extends React.Component {
         return (
             <React.Fragment>
                 <div className="input-field">
-                    <input type={type} id={name} autoComplete onChange={event => onChange(event)} value={value}
+                    <input type={type} id={name} autoComplete="true" onChange={event => onChange(event)} value={value}
                            name={name}/>
-                    <label for={name}>{hint}</label>
+                    <label htmlFor={name}>{hint}</label>
                 </div>
 
             </React.Fragment>
