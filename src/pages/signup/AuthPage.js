@@ -10,11 +10,11 @@ class AuthPage extends React.Component {
             <div className="authPage">
                 <div className="authPage__container">
                     <div className="authPage__signup authPage__formContainer">
-                        <SignUpForm/>
+                        <SignInForm/>
                     </div>
                     <div className="authPage__divider"/>
                     <div className="authPage__signin authPage__formContainer">
-                        <SignInForm/>
+                        <SignUpForm/>
                     </div>
                 </div>
             </div>

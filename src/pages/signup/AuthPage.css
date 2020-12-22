@@ -5,15 +5,14 @@
 
 .authPage__container {
     display: grid;
-    grid-template-columns: 1fr 1px 1fr;
     position: relative;
-    background: rgba(255, 255, 255, 0.8);
-    width: 90%;
-    height: 90%;
+    grid-template-columns: 1fr 1px 1fr;
+    width: 60%;
+    height: 85%;
     margin: 5% auto;
-    border-radius: 10px;
     padding: 5%;
-
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
 
 }
 
@@ -26,8 +25,9 @@
 }
 
 .authPage__formContainer {
+    grid-row: span 1;
     padding: 5%;
-    display: inline;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
