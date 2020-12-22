@@ -1,7 +1,7 @@
 import React from "react";
 import {Auth} from "aws-amplify"
 import Input from "../form/Input";
-import "./SignUpForm.css"
+import "./AuthForm.css"
 
 class SignUpForm extends React.Component {
 
@@ -17,6 +17,13 @@ class SignUpForm extends React.Component {
                 password: "",
                 repeatedPassword: "",
                 name: "",
+            },
+            errors: {
+                email: "",
+                username: "",
+                password: "",
+                repeatedPassword: "",
+                name: ""
             }
         }
     }
@@ -28,12 +35,12 @@ class SignUpForm extends React.Component {
 
     submit = async () => {
 
-        const {email, password, name} = this.state.user;
+        const {email, signInPassword, name} = this.state.user;
         let username = email;
         try {
             const {user} = await Auth.signUp({
                 username,
-                password,
+                password: signInPassword,
                 attributes: {
                     email,
                     name
@@ -46,7 +53,6 @@ class SignUpForm extends React.Component {
     }
 
     onInputChange = event => {
-        // console.log(event.target, event.target.name)
         const {name, value} = event.target;
         this.setState(prevState => ({
             user: {
@@ -60,15 +66,17 @@ class SignUpForm extends React.Component {
 
         const {user} = this.state;
         return (
-            <div className="registration-form">
-                <Input type="email" hint="email" value={user.email} onChange={this.onInputChange} name="email"/>
+            <div className="authForm">
+                <h1 className="authForm__title">Creat account</h1>
+                <Input type="email" hint="email" value={user.email} onChange={this.onInputChange} name="email"
+                       error="tralala"/>
                 <Input type="password" hint="password" value={user.password} onChange={this.onInputChange}
                        name="password"/>
                 <Input type="password" hint="repeat password" value={user.repeatedPassword}
                        onChange={this.onInputChange} name="repeatedPassword"/>
                 <Input type="text" hint="name" value={user.name} onChange={this.onInputChange} name="name"/>
                 <button type="submit" onClick={this.submit} disabled={!this.handleValidation()} value="Register"
-                        className="register-btn">Create account
+                        className="authForm__btn">Create account
                 </button>
             </div>
         );

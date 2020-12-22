@@ -1,8 +1,8 @@
 import {GoogleApiWrapper, Map} from "google-maps-react";
 import React from "react"
-import "./MapContainer.css";
+import "./DevicesMapPage.css";
 
-export class MapContainer extends React.Component {
+export class DevicesMapPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -34,4 +34,4 @@ export class MapContainer extends React.Component {
 
 export default GoogleApiWrapper({
     apiKey: "AIzaSyCq057wpthiUKUZ7s25Ytegqp181HIK2nY"
-})(MapContainer);
+})(DevicesMapPage);

@@ -6,13 +6,14 @@ class Input extends React.Component {
 
     render() {
 
-        const {type, hint, onChange, value, name} = this.props;
+        const {name, value, hint, error, type, onChange} = this.props;
         return (
             <React.Fragment>
                 <div className="inputField">
                     <input type={type} id={name} autoComplete="true" onChange={event => onChange(event)} value={value}
-                           name={name}/>
+                           name={name} required/>
                     <label htmlFor={name}>{hint}</label>
+                    {error ? <span className="inputField__error">{error}</span> : null}
                 </div>
 
             </React.Fragment>

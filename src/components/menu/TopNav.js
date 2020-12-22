@@ -60,7 +60,7 @@ class TopNav extends React.Component {
                     <p className="user-info"></p>
                     <li><Link onClick={this.closeMenu} to="/home">Home</Link></li>
                     <li><Link onClick={this.closeMenu} to="#">My devices</Link></li>
-                    <li><Link onClick={this.closeMenu} to="/map">Map</Link></li>
+                    <li><Link onClick={this.closeMenu} to="/map">Devices map</Link></li>
                     <li><Link onClick={this.closeMenu} to="/sign-in">Sign in</Link></li>
                 </ul>
 

@@ -42,9 +42,16 @@
     border-color: blueviolet;
 }
 
-.inputField input:focus ~ label {
+.inputField input:focus ~ label,
+.inputField input:not([value=""]) ~ label {
     font-size: 14px;
     top: -30px;
     color: blueviolet;;
 
+}
+
+.inputField__error {
+
+    margin: 0;
+    color: red;
 }

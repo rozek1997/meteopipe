@@ -1,0 +1,40 @@
+.authPage {
+    grid-area: main;
+    background: var(--main-theme);
+}
+
+.authPage__container {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    width: 90%;
+    height: 90%;
+    margin: 5% auto;
+    border-radius: 10px;
+    padding: 5%;
+
+
+}
+
+.authPage__signup {
+    grid-column: 1;
+}
+
+.authPage__signin {
+    grid-column: 3;
+}
+
+.authPage__formContainer {
+    padding: 5%;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+.authPage__divider {
+    background: black;
+    grid-column: 2;
+    height: 100%;
+}
+
