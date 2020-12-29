@@ -1,11 +1,11 @@
-import Amplify from 'aws-amplify';
+import Amplify, {Auth} from 'aws-amplify';
 
 Amplify.configure({
     Auth: {
         region: "eu-central-1",
-        userPoolId: "eu-central-1_qk0joyOpK",
-        userPoolWebClientId: "2l0lhlqtuuq77a6oce9bvs4e8e"
+        userPoolId: "eu-central-1_dmnlpIx6M",
+        userPoolWebClientId: "2vjt1p8l6rrf7nopj968188fe7",
     }
 });
 
-export default Amplify;
+export const currentAmplifyConfig = Auth.configure();

@@ -3,9 +3,9 @@
 }
 
 :root {
-  --main-theme: #32CD32;
-  --shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
-  --input-theme: blueviolet;
+    --main-theme: #ADFF2F;
+    --shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
+    --input-theme: blueviolet;
 }
 
 body {
