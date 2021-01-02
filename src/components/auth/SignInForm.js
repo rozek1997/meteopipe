@@ -1,5 +1,7 @@
 import React from "react";
 import {Auth} from "aws-amplify"
+import {connect} from "react-redux"
+import {login, logout} from "../../redux/actions";
 import Input from "../form/Input";
 import "./AuthForm.css"
 
@@ -31,8 +33,11 @@ class SignInForm extends React.Component {
 
         const {signInEmail, signInPassword} = this.state.user;
         try {
-            const {user} = await Auth.signIn(signInEmail, signInPassword);
-            console.log(user);
+            const user = await Auth.signIn(signInEmail, signInPassword);
+            const {sub, email} = user["attributes"];
+            console.log(sub, email);
+            this.props.login(sub, email);
+
         } catch (error) {
             console.log('error signing in:', error);
         }
@@ -67,4 +72,5 @@ class SignInForm extends React.Component {
     }
 }
 
-export default SignInForm;
+
+export default connect(null, {login, logout})(SignInForm);

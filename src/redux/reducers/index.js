@@ -1,8 +1,14 @@
 import {combineReducers} from "redux";
 
 const initialState = {
-    isMenuOpen: false
+    isMenuOpen: false,
+
 };
+
+const userInitialState = {
+    uuid: "",
+    email: ""
+}
 
 const menuReducer = (state = initialState, action) => {
     if (action.type === "CLOSE_MENU")
@@ -14,7 +20,27 @@ const menuReducer = (state = initialState, action) => {
     return state;
 }
 
+const userReducer = (state = userInitialState, action) => {
+    if (action.type === "LOGIN") {
+        return {
+            ...state,
+            email: action.payload.email,
+            uuid: action.payload.uuid
+        }
+    }
+    if (action.type === "LOGOUT") {
+        return {
+            ...state,
+            email: "",
+            uuid: ""
+        }
+    }
+
+    return state;
+}
+
 
 export const reducers = combineReducers({
-    menuStatus: menuReducer
+    menuStatus: menuReducer,
+    userInfo: userReducer
 });

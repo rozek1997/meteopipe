@@ -9,3 +9,23 @@ export const openMenu = () => {
         type: "OPEN_MENU"
     }
 }
+
+export const login = (uuid, email) => {
+    return {
+        type: "LOGIN",
+        payload: {
+            uuid,
+            email
+        }
+    }
+}
+
+export const logout = () => {
+    return {
+        type: "LOGOUT",
+        payload: {
+            uuid: "",
+            email: ""
+        }
+    }
+}
