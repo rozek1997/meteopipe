@@ -33,5 +33,5 @@ export class DevicesMapPage extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyCq057wpthiUKUZ7s25Ytegqp181HIK2nY"
+    apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
 })(DevicesMapPage);
