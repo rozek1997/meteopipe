@@ -1,9 +1,13 @@
 import React from "react";
 import {Auth} from "aws-amplify"
 import {connect} from "react-redux"
+import {withRouter} from "react-router";
+import {compose} from "redux";
 import {login, logout} from "../../redux/actions";
 import Input from "../form/Input";
 import "./AuthForm.css"
+import {axiosConfig} from "../../api/axios/apiconfig";
+
 
 class SignInForm extends React.Component {
 
@@ -35,8 +39,10 @@ class SignInForm extends React.Component {
         try {
             const user = await Auth.signIn(signInEmail, signInPassword);
             const {sub, email} = user["attributes"];
-            console.log(sub, email);
+            console.log(user);
             this.props.login(sub, email);
+            axiosConfig.defaults.headers.common["Authorization"] = user["signInUserSession"]["idToken"]["jwtToken"]
+            this.props.history.push("/my-devices")
 
         } catch (error) {
             console.log('error signing in:', error);
@@ -73,4 +79,4 @@ class SignInForm extends React.Component {
 }
 
 
-export default connect(null, {login, logout})(SignInForm);
+export default compose(connect(null, {login, logout}), withRouter)(SignInForm);
