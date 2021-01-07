@@ -10,6 +10,11 @@ const userInitialState = {
     email: ""
 }
 
+const deviceInitialState = {
+    deviceList: [],
+    chosenDevice: ""
+}
+
 const menuReducer = (state = initialState, action) => {
     if (action.type === "CLOSE_MENU")
         return {...state, isMenuOpen: false}
@@ -39,8 +44,27 @@ const userReducer = (state = userInitialState, action) => {
     return state;
 }
 
+const deviceReducer = (state = deviceInitialState, action) => {
+    if (action.type === "LIST_DEVICES") {
+        return {
+            ...state,
+            deviceList: [...action.payload.deviceList]
+        }
+    }
+
+    if (action.type === "CHOOSE_DEVICE") {
+        return {
+            ...state,
+            chosenDevice: action.payload.deviceID
+        }
+    }
+
+    return state;
+}
+
 
 export const reducers = combineReducers({
     menuStatus: menuReducer,
-    userInfo: userReducer
+    userInfo: userReducer,
+    devicesStatus: deviceReducer
 });

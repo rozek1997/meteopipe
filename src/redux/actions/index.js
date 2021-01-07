@@ -29,3 +29,21 @@ export const logout = () => {
         }
     }
 }
+
+export const listDevices = (deviceList) => {
+    return {
+        type: "LIST_DEVICES",
+        payload: {
+            deviceList
+        }
+    }
+}
+
+export const chooseDevice = (deviceID) => {
+    return {
+        type: "CHOOSE_DEVICE",
+        payload: {
+            deviceID
+        }
+    }
+}

@@ -6,7 +6,7 @@ import {compose} from "redux";
 import {login, logout} from "../../redux/actions";
 import Input from "../form/Input";
 import "./AuthForm.css"
-import {axiosConfig} from "../../api/axios/apiconfig";
+import axios from "../../api/axios/apiconfig";
 
 
 class SignInForm extends React.Component {
@@ -41,7 +41,7 @@ class SignInForm extends React.Component {
             const {sub, email} = user["attributes"];
             console.log(user);
             this.props.login(sub, email);
-            axiosConfig.defaults.headers.common["Authorization"] = user["signInUserSession"]["idToken"]["jwtToken"]
+            axios.defaults.headers.common["Authorization"] = user["signInUserSession"]["idToken"]["jwtToken"]
             this.props.history.push("/my-devices")
 
         } catch (error) {

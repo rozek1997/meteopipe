@@ -1,8 +1,8 @@
-import {axios} from "./apiconfig";
+import axios from "./apiconfig";
 
 
 export const api = {
-    listMyDevices: (uuid) => axios.get("/device/list-my-device", {
+    listMyDevices: (uuid) => axios.post("/device/list-my-device", {
         uuid
     }),
     registerDevice: (thing_name, uuid) => axios.post("/device/register-device", {
