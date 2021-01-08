@@ -25,4 +25,4 @@ const mapStateToProps = state => {
     return {}
 }
 
-export default connect(mapStateToProps, {chooseDevice})(DeviceItem)
+export default connect(mapStateToProps, {chooseDevice})(DeviceDetailBox)

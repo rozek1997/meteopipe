@@ -5,7 +5,8 @@
 :root {
     --main-theme: #2675cd;
     --shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
-    --input-theme: blueviolet;
+    --input-theme: #2675cd;
+    --agree-button-color: #5fcd26
 }
 
 body {

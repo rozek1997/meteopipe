@@ -9,7 +9,6 @@ class DeviceList extends React.Component {
     renderList = () => {
 
         return this.props.deviceList.map(item => {
-            console.log(item)
             return <DeviceItem key={item} name={item}/>
         });
     }
