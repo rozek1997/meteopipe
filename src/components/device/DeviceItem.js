@@ -22,7 +22,7 @@ class DeviceItem extends React.Component {
         if (window.confirm(`Are you sure you want to delete this device: ${this.props.name}`)) {
             try {
                 await api.removeDevice(this.props.name);
-                await this.props.reloadList("cb83d2e9-e212-463d-9b5e-25b2de315377");
+                await this.props.reloadList();
             } catch (e) {
                 console.log(e)
             }

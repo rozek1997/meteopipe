@@ -34,7 +34,7 @@ class DeviceRegistrationModal extends React.Component {
         let response = undefined
         if (name.length !== 0) {
             try {
-                response = await api.registerDevice(name, "cb83d2e9-e212-463d-9b5e-25b2de315377");
+                response = await api.registerDevice(name);
                 console.log(response)
                 this.setState(prevState => ({
                     newDevice: {
@@ -44,7 +44,7 @@ class DeviceRegistrationModal extends React.Component {
                         certURL: response.data["get_file_url"]
                     }
                 }));
-                await this.props.reloadList("cb83d2e9-e212-463d-9b5e-25b2de315377");
+                await this.props.reloadList();
 
             } catch (e) {
                 this.setState(prevState => ({

@@ -2,27 +2,21 @@ import axios from "./apiconfig";
 import {Auth} from "aws-amplify";
 
 
-axios.interceptors.request.use(config => {
-    return Auth.currentSession()
-        .then(session => { // User is logged in.
-            axios.defaults.headers.common["Authorization"] = session.idToken.jwtToken;
-            return Promise.resolve(config);
-        })
-        .catch(() => {
-            // No logged-in user: don't set auth header
-            return Promise.resolve(config);
-        })
-})
+axios.interceptors.request.use(async config => {
+
+        const authResponse = await Auth.currentSession();
+        config.headers["Authorization"] = authResponse.idToken.jwtToken;
+        return config;
+    },
+    error => {
+        Promise.reject(error)
+    }
+)
 
 export const api = {
-    listMyDevices: (uuid) => axios.get("/devices", {
-        params: {
-            uuid
-        }
-    }),
-    registerDevice: (thing_name, uuid) => axios.post("/devices", {
-        thing_name,
-        uuid
+    listMyDevices: () => axios.get("/devices", {}),
+    registerDevice: (thing_name) => axios.post("/devices", {
+        thing_name
     }),
     removeDevice: (deviceId) => axios.delete("/devices", {
         params: {

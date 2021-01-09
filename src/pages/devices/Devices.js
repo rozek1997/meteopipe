@@ -26,7 +26,7 @@ class Devices extends React.Component {
     }
 
     componentDidMount() {
-        this.getMyDevices("cb83d2e9-e212-463d-9b5e-25b2de315377")
+        this.getMyDevices()
     }
 
     getMyDevices = async (uuid) => {
