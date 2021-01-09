@@ -69,40 +69,6 @@
     background: var(--agree-button-color);
 }
 
-.device__popup {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-}
-
-.device__form {
-    padding: 3%;
-    background: white;
-    width: 50vw;
-    height: 50vh;
-}
-
-.device__form p {
-    margin: 20px 0;
-}
-
-.form__button {
-    cursor: pointer;
-    outline: none;
-    background: var(--agree-button-color);
-    color: white;
-    width: 100%;
-    height: 2rem;
-    border: 1px black solid;
-    box-shadow: var(--shadow);
-
-}
-
 @media (max-width: 732px) {
 
     .device__container {
@@ -115,4 +81,5 @@
         grid-template-columns: 100%;
         overflow: auto;
     }
+
 }

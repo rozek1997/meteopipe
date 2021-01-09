@@ -2,18 +2,23 @@ import React from "react";
 import {connect} from "react-redux"
 import DeviceItem from "./DeviceItem";
 import "./DeviceList.css"
+import Loader from "../loader/Loader";
 
 
 class DeviceList extends React.Component {
 
     renderList = () => {
 
+        const {selectedDevice, reloadList} = this.props;
         return this.props.deviceList.map(item => {
-            return <DeviceItem key={item} name={item}/>
+            const isItemChecked = item === selectedDevice;
+            return <DeviceItem key={item} name={item} reloadList={reloadList} checked={isItemChecked}/>
         });
     }
 
     render() {
+        const deviceList = this.props.deviceList;
+
         return (
             <React.Fragment>
                 <div className="list__line"/>
@@ -23,7 +28,7 @@ class DeviceList extends React.Component {
                     <li className="list__logo">Logo</li>
                 </ul>
                 <ul className="list">
-                    {this.renderList()}
+                    {deviceList.length !== 0 ? this.renderList() : <Loader/>}
                 </ul>
                 <div className="list__line"/>
             </React.Fragment>
@@ -33,8 +38,10 @@ class DeviceList extends React.Component {
 
 
 const mapStateToProps = state => {
+    const deviceStatus = state.devicesStatus;
     return {
-        deviceList: state.devicesStatus.deviceList
+        deviceList: deviceStatus.deviceList,
+        selectedDevice: deviceStatus.selectedDevice
     }
 }
 

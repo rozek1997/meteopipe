@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux"
-import {chooseDevice} from "../../redux/actions";
+import {selectDevice} from "../../redux/actions";
 import "./DeviceItem.css"
 
 class DeviceDetailBox extends React.Component {
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
     return {}
 }
 
-export default connect(mapStateToProps, {chooseDevice})(DeviceDetailBox)
+export default connect(mapStateToProps, {chooseDevice: selectDevice})(DeviceDetailBox)

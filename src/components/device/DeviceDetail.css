@@ -2,4 +2,12 @@
     height: 80%;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.device__message {
+    color: grey;
 }

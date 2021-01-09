@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux"
-import {chooseDevice} from "../../redux/actions";
+import {selectDevice} from "../../redux/actions";
 import "./DeviceDetail.css"
 
 class DeviceDetail extends React.Component {
@@ -12,7 +12,8 @@ class DeviceDetail extends React.Component {
     render() {
         return (
             <div className="device__detail">
-                {Object.keys(this.props.chosenDevice).length === 0 ? this.renderDetails() : "Choose device or create new one"}
+                {this.props.selectedDevice.length !== 0 ? this.renderDetails() :
+                    <p className="device__message">Choose device from the list or create new one</p>}
             </div>
         );
     }
@@ -21,8 +22,8 @@ class DeviceDetail extends React.Component {
 const mapStateToProps = state => {
 
     return {
-        chosenDevice: state.devicesStatus.chosenDevice
+        selectedDevice: state.devicesStatus.selectedDevice
     }
 }
 
-export default connect(mapStateToProps, {chooseDevice})(DeviceDetail)
+export default connect(mapStateToProps, {chooseDevice: selectDevice})(DeviceDetail)

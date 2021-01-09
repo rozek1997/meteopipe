@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux"
-import {chooseDevice} from "../../redux/actions";
+import {selectDevice} from "../../redux/actions";
 import {api} from "../../api/axios"
 import "./DeviceItem.css"
 import Logo from "./hosting.svg"
@@ -8,31 +8,21 @@ import Cancel from "./cancel.svg"
 
 class DeviceItem extends React.Component {
 
-    constructor() {
-        super();
-
-        this.checkboxRef = React.createRef();
-        // console.log(this.props)
-        this.state = {
-            isItemChecked: false
-        }
-    }
-
     onItemClicked = () => {
-        this.setState({isItemChecked: !this.state.isItemChecked});
-        console.log(this.checkboxRef)
-        this.checkboxRef.current.checked = this.state.isItemChecked;
-        if (this.state.isItemChecked)
-            this.props.chooseDevice(this.props.name)
 
+        const {selectedDevice, name} = this.props;
 
+        if (selectedDevice === name)
+            this.props.selectDevice("");
+        else
+            this.props.selectDevice(this.props.name);
     }
 
-    onCancelClicked = async () => {
+    onDeleteButtonClicked = async () => {
         if (window.confirm(`Are you sure you want to delete this device: ${this.props.name}`)) {
             try {
                 await api.removeDevice(this.props.name);
-                window.location.reload();
+                await this.props.reloadList("cb83d2e9-e212-463d-9b5e-25b2de315377");
             } catch (e) {
                 console.log(e)
             }
@@ -43,12 +33,13 @@ class DeviceItem extends React.Component {
         return (
             <div className="device__item">
                 <div className="device__item-clickable" onClick={this.onItemClicked}>
-                    <input type="checkbox" className="device__checkbox" ref={this.checkboxRef}
-                           checked={this.state.isItemChecked} onChange={this.onItemClicked}/>
+                    <input type="checkbox" className="device__checkbox"
+                           checked={this.props.checked} onChange={this.onItemClicked}/>
                     <p className="device__name">{this.props.name}</p>
                     <img src={Logo} width="50px" height="50px" alt="iot device"/>
                 </div>
-                <img src={Cancel} width="20px" height="20px" onClick={this.onCancelClicked} className="device__delete"
+                <img src={Cancel} width="20px" height="20px" onClick={this.onDeleteButtonClicked}
+                     className="device__delete"
                      alt="cancel button"/>
             </div>
         );
@@ -56,8 +47,10 @@ class DeviceItem extends React.Component {
 }
 
 const mapStateToProps = state => {
-
-    return {}
+    return {
+        selectedDevice: state.devicesStatus.selectedDevice
+    }
 }
 
-export default connect(mapStateToProps, {chooseDevice})(DeviceItem)
+
+export default connect(mapStateToProps, {selectDevice})(DeviceItem)
