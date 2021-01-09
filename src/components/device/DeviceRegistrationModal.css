@@ -9,18 +9,18 @@
     visibility: hidden;
 }
 
-.device__form {
+.device-registration__form {
     padding: 3%;
     background: white;
     width: 50vw;
     height: 50vh;
 }
 
-.device__form p {
+.device-registration__form p {
     margin: 20px 0;
 }
 
-.form__button {
+.device-registration__button {
     cursor: pointer;
     outline: none;
     background: var(--agree-button-color);
@@ -28,26 +28,30 @@
     width: 100%;
     height: 2rem;
     border: 1px black solid;
+    border-radius: 5px;
     box-shadow: var(--shadow);
 
 }
 
-.clipboard__button {
+.device-registration__button:hover,
+.device-registration__button:active {
+    background: var(--main-theme);
+}
 
+.device-registration__clipboardButton {
+    border-radius: 5px;
     cursor: copy;
-    background: grey;
+    background: yellow;
     width: 100%;
     height: 2rem;
     box-shadow: var(--shadow);
 }
 
-.clipboard__input {
-    visibility: hidden;
-}
+
 
 @media (max-width: 732px) {
 
-    .device__form {
+    .device-registration__form {
         padding: 3%;
         background: white;
         width: 75vw;

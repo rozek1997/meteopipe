@@ -90,7 +90,7 @@ class DeviceRegistrationModal extends React.Component {
     renderClipBoardButton = () => {
         return (
             <React.Fragment>
-                <button className="clipboard__button" onClick={this.copyToClipBoard}>Copy url to
+                <button className="device-registration__clipboardButton" onClick={this.copyToClipBoard}>Copy url to
                     clipboard
                 </button>
             </React.Fragment>
@@ -111,17 +111,19 @@ class DeviceRegistrationModal extends React.Component {
         const device = this.state.newDevice;
         return (
             <div className="device__popup" onClick={this.hideModal} ref={this.popupRef}>
-                <div className="device__form" onClick={event => event.stopPropagation()}>
-                    <h3 className="form__title">Register device</h3>
-                    <p className="form__description">Provide thing name. App will provisioned new device and return
+                <div className="device-registration__form" onClick={event => event.stopPropagation()}>
+                    <h3 className="device-registration__title">Register device</h3>
+                    <p className="device-registration__description">Provide thing name. App will provisioned new device
+                        and return
                         link.
                         After that you have 10 minutes to download cert and keys which enable you connect to the
                         cloud</p>
                     <Input type="text" hint="device name" value={this.state.newDevice.name}
                            onChange={this.onRegisterDeviceInputChange}
                            name="name"/>
-                    <button className="form__button" onClick={this.addNewDevices}>Register device</button>
-                    <p className="form__message">{device.message}</p>
+                    <button className="device-registration__button" onClick={this.addNewDevices}>Register device
+                    </button>
+                    <p className="fdevice-registration__message">{device.message}</p>
                     {/*{this.renderClipBoardButton(device.certURL)}*/}
                     {device.certURL.length > 0 ? this.renderClipBoardButton() : null}
                 </div>
