@@ -12,7 +12,7 @@ const userInitialState = {
 
 const deviceInitialState = {
     deviceList: [],
-    chosenDevice: ""
+    selectedDevice: ""
 }
 
 const menuReducer = (state = initialState, action) => {
@@ -52,10 +52,10 @@ const deviceReducer = (state = deviceInitialState, action) => {
         }
     }
 
-    if (action.type === "CHOOSE_DEVICE") {
+    if (action.type === "SELECT_DEVICE") {
         return {
             ...state,
-            chosenDevice: action.payload.deviceID
+            selectedDevice: action.payload.deviceID
         }
     }
 

@@ -39,9 +39,9 @@ export const listDevices = (deviceList) => {
     }
 }
 
-export const chooseDevice = (deviceID) => {
+export const selectDevice = (deviceID) => {
     return {
-        type: "CHOOSE_DEVICE",
+        type: "SELECT_DEVICE",
         payload: {
             deviceID
         }
