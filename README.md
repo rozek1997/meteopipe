@@ -1,3 +1,49 @@
+# MeteoPipe Website
+
+Project under development
+
+- [MeteoPipe Client](https://github.com/rozek1997/meteopipe-lib)
+- [MeteoPipe serverless logic](https://github.com/rozek1997/meteopipe-serverless-backend)
+
+# Description
+
+# Technology
+
+* React
+* Redux
+* Redux Thunk
+* Axios
+* CSS3
+* AWS Amplify (for authentication purpose, connecting to AWS Cognito, automatically refresh tokens)
+
+# Sample views from app
+
+### Main page
+
+![Main page](http://via.placeholder.com/200x150)
+
+### Login page
+
+![Login page](http://via.placeholder.com/200x150)
+
+### My device Page
+
+![My device Page](http://via.placeholder.com/200x150)
+
+### Device map page
+
+![Maps page](http://via.placeholder.com/200x150)
+
+### Menu
+
+![Menu](http://via.placeholder.com/200x150)
+
+## Mobile views
+
+Main page mobile  | My device page mobile
+-------------------------------------------------| --------------------------
+![Maps page](http://via.placeholder.com/200x150) | ![My device Page](http://via.placeholder.com/200x150)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -47,3 +47,12 @@ export const selectDevice = (deviceID) => {
         }
     }
 }
+
+export const fetchDeviceStatus = deviceStatus => {
+
+    let deviceStatusObj = {}
+    return {
+        type: "FETCH_DEVICE_STATUS_SUCCESS",
+        payload: {}
+    }
+}
