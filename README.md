@@ -20,15 +20,15 @@ Project under development
 
 ### Main page
 
-![Main page](http://via.placeholder.com/200x150)
+![Main page](https://user-images.githubusercontent.com/38226876/104334420-a14e1580-54f2-11eb-815d-ccfd1817a632.png)
 
 ### Login page
 
-![Login page](http://via.placeholder.com/200x150)
+![Login page](https://user-images.githubusercontent.com/38226876/104334515-c04ca780-54f2-11eb-8e8a-0b8ad73c654e.png)
 
 ### My device Page
 
-![My device Page](http://via.placeholder.com/200x150)
+![My device Page](https://user-images.githubusercontent.com/38226876/104334439-a7dc8d00-54f2-11eb-96ad-738cb03dd5c7.png)
 
 ### Device map page
 
@@ -36,13 +36,13 @@ Project under development
 
 ### Menu
 
-![Menu](http://via.placeholder.com/200x150)
+![Menu](https://user-images.githubusercontent.com/38226876/104334697-fa1dae00-54f2-11eb-83c2-06f50675329c.png)
 
 ## Mobile views
 
 Main page mobile  | My device page mobile
 -------------------------------------------------| --------------------------
-![Maps page](http://via.placeholder.com/200x150) | ![My device Page](http://via.placeholder.com/200x150)
+![Maps page](https://user-images.githubusercontent.com/38226876/104334768-10c40500-54f3-11eb-9a05-22dc3cf95d2e.png) | ![My device Page](https://user-images.githubusercontent.com/38226876/104334874-2a654c80-54f3-11eb-8b23-438d8c91af0e.png)
 
 # Getting Started with Create React App
 
